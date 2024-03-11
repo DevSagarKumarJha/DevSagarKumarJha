@@ -1,6 +1,6 @@
-### Hi there 👋
 
 <!--
+### Hi there 👋
 **DevSagarKumarJha/DevSagarKumarJha** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
@@ -19,7 +19,7 @@ Here are some ideas to get you started:
 
 ###
 
-<p align="left">My name is ... and I'm a ..., from ....</p>
+<p align="left">My name is Sagar Kumar Jha and I'm a computer programmer and a freelancer, from Delhi</p>
 
 ###
 
