@@ -89,6 +89,7 @@ export interface Admin extends Document {
     verifyCode: string;
     verifyCodeExpiry: Date;
     isVerified: boolean;
+    bio: string;
     socials: SocialLinks[];
     blogs: Blog[];
     projects: Project[];
@@ -138,6 +139,10 @@ const AdminSchema: Schema<Admin> = new Schema(
         isVerified: {
             type: Boolean,
             default: false,
+        },
+        bio: {
+            type: String,
+            default: "",
         },
         socials: [SocialLinksSchema],
         projects: [ProjectSchema],
