@@ -51,6 +51,55 @@ const ProjectSchema: Schema<Project> = new Schema(
         }
     }
 )
+export interface Certificate extends Document {
+    name: string;
+    issuingOrganization: string;
+    credentialId: string;
+    img: string;
+    credentialUrl: string;
+    issueDate: Date;
+    expiryDate?:Date; 
+    createdAt: Date;
+}
+
+const CertificateSchema: Schema<Certificate> = new Schema(
+    {
+        name: {
+            type: String,
+            required: [true, "Name is required"],
+        },
+        issuingOrganization: {
+            type: String,
+            required: [true, "Issuing organization is required"],
+        },
+        credentialId:{
+            type: String,
+            default:""
+        },
+        img: {
+            type: String,
+            required: [true, "Media is required"],
+        },
+        credentialUrl: {
+            type: String,
+            default:""
+        },
+        issueDate:{
+            type: Date,
+            required: [true, "Issue date is required"],
+            default: Date.now
+        },
+        expiryDate:{
+            type: Date,
+            default: null,
+        },
+        createdAt: {
+            type: Date,
+            required: true,
+            default: Date.now,
+        }
+    }
+)
 export interface Blog extends Document {
     title: string;
     content: string;
@@ -90,6 +139,10 @@ export interface Admin extends Document {
     verifyCodeExpiry: Date;
     isVerified: boolean;
     bio: string;
+    skills: string[];
+    country: string;
+    city: string;
+    certificates: Certificate[];
     socials: SocialLinks[];
     blogs: Blog[];
     projects: Project[];
@@ -144,6 +197,11 @@ const AdminSchema: Schema<Admin> = new Schema(
             type: String,
             default: "",
         },
+        skills:{
+            type: [String],
+            default: []
+        },
+        certificates: [CertificateSchema],
         socials: [SocialLinksSchema],
         projects: [ProjectSchema],
         blogs: [BlogSchema],
