@@ -21,7 +21,7 @@ const SocialLinksSchema: Schema<SocialLinks> = new Schema(
 export interface Project extends Document {
     title: string;
     description: string;
-    img: string[];
+    images: string[];
     url: string;
     createdAt: Date;
 }
@@ -36,7 +36,7 @@ const ProjectSchema: Schema<Project> = new Schema(
             type: String,
             required: [true, "Description is required"],
         },
-        img: {
+        images: {
             type: [String],
             required: [true, "Atleast one image is required"],
         },
@@ -103,7 +103,7 @@ const CertificateSchema: Schema<Certificate> = new Schema(
 export interface Blog extends Document {
     title: string;
     content: string;
-    img: string[];
+    images: string[];
     createdAt: Date;
 }
 
@@ -117,7 +117,7 @@ const BlogSchema: Schema<Blog> = new Schema(
             type: String,
             required: [true, "Description is required"],
         },
-        img: {
+        images: {
             type: [String],
             required: [true, "Atleast one image is required"],
         },
@@ -139,9 +139,9 @@ export interface Admin extends Document {
     verifyCodeExpiry: Date;
     isVerified: boolean;
     bio: string;
-    skills: string[];
     country: string;
     city: string;
+    skills: string[];
     certificates: Certificate[];
     socials: SocialLinks[];
     blogs: Blog[];

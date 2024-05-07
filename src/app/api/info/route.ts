@@ -21,20 +21,23 @@ export async function POST(request: Request) {
     await dbConnect();
 
     const userId = user._id;
-    const {name, biodata } = await request.json();
+    const { name, biodata, country, city } = await request.json();
 
     try {
-        const updateAdmin = await AdminModel.findByIdAndUpdate(
+        const updateAdminInfo = await AdminModel.findByIdAndUpdate(
             userId,
             {
-                name: name,
-                bio: biodata,             
-            }, {
-            new: true
-        }
+                name,
+                bio: biodata,
+                country,
+                city,
+            },
+            {
+                new: true
+            }
         )
 
-        if (!updateAdmin) {
+        if (!updateAdminInfo) {
             return Response.json(
                 {
                     success: false,
@@ -50,9 +53,9 @@ export async function POST(request: Request) {
             {
                 success: true,
                 message: "Biodata updated successfully"
-            },{
-                status: 200,
-            }
+            }, {
+            status: 200,
+        }
         )
     } catch (error) {
         console.log("Failed to update biodata")
@@ -68,7 +71,7 @@ export async function POST(request: Request) {
     }
 }
 
-export async function GET(request: Request){
+export async function GET(request: Request) {
     const session = await getServerSession(authOptions)
     const user: Admin = session?.user as Admin;
 
@@ -90,7 +93,7 @@ export async function GET(request: Request){
     try {
         const user = await AdminModel.findById(userId);
 
-        if(!user){
+        if (!user) {
             return Response.json(
                 {
                     success: false,
@@ -103,11 +106,9 @@ export async function GET(request: Request){
 
         return Response.json(
             {
-                success: false,
-                message: "UnAuthenticated User",
-                user
+                user: user
             }, {
-            status: 401
+            status: 200
         }
         )
     } catch (error) {
