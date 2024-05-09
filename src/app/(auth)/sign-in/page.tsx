@@ -1,7 +1,7 @@
 "use client";
 import { Form, FormControl, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import * as z from "zod";
-import React, { useState } from 'react';
+import {useState } from 'react';
 import { signInSchema } from '@/schemas/signInSchema';
 import { useForm } from 'react-hook-form';
 import { Input } from '@/components/ui/input';
@@ -12,7 +12,7 @@ import { toast } from '@/components/ui/use-toast';
 import { useRouter } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 
-function page() {
+export default function SignInPage() {
     const [loading, setLoading] = useState(false);
     const router = useRouter();
 
@@ -107,4 +107,3 @@ function page() {
     )
 }
 
-export default page
