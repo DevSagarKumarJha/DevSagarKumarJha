@@ -1,9 +1,15 @@
-import React from 'react'
+import InfoCard from '@/components/dashboard-components/InfoCard';
+import SkillCard from '@/components/dashboard-components/SkillCard';
 
-const page = () => {
+
+const Page = () => {
+
   return (
-    <div>Dashboard page</div>
-  )
+    <section className='flex flex-col justify-center items-center min-h-screen md:px-12 md:py-10 px-2 space-y-3'>
+      <InfoCard/>
+      <SkillCard/>
+    </section>
+  );
 }
 
-export default page
+export default Page;
