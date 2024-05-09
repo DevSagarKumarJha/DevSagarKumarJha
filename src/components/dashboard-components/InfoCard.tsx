@@ -6,6 +6,7 @@ import { Loader2, PenIcon, UserPlus2Icon } from 'lucide-react'
 import axios from 'axios';
 import { Admin } from '@/model/Admin';
 import { Separator } from '../ui/separator'
+import Image from 'next/image'
 
 function InfoCard() {
   const [isLoading, setIsLoading] = useState(false);
@@ -47,7 +48,7 @@ function InfoCard() {
           <Link href={""} className="border-8 rounded-full border-red-400 bg-gray-900 p-5  md:w-fit ">
             {
               user && user.imgurl ? (
-                <img className='object-fit' src={user.imgurl} alt="" />
+                <Image className='object-fit' src={user.imgurl} alt="" />
               ) : (
                 <UserPlus2Icon className='w-200 text-red-400' size={70} />
               )

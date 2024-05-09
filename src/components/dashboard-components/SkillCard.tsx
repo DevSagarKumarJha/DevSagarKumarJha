@@ -139,8 +139,8 @@ function SkillCard() {
 
                 <div className='grid grid-cols-3 p-2 md:grid-cols-6 lg:grid-cols-8 gap-4'>
                     {
-                        user?.skills.map((skill) => (
-                            <Button className='text-white md:text-lg bg-red-400'>{skill}</Button>
+                        user?.skills.map((skill, index) => (
+                            <Button key={index} className='text-white md:text-lg bg-red-400'>{skill}</Button>
                         ))
                     }
                 </div>
