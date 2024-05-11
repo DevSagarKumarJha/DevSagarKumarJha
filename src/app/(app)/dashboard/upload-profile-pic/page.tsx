@@ -15,7 +15,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import * as z from 'zod'
 
-const page = () => {
+const UploadProfilePicPage = () => {
     const [loading, setIsLoading] = useState(false);
     const [user, setUser] = useState<Admin | null>(null);
     const router = useRouter();
@@ -125,4 +125,4 @@ const page = () => {
     )
 }
 
-export default page
+export default UploadProfilePicPage
