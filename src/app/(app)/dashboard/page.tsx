@@ -11,12 +11,55 @@ import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
 import { Separator } from '@/components/ui/separator'
 import Link from 'next/link'
+import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from '@/components/ui/alert-dialog'
+import { useForm } from 'react-hook-form'
+import { skillSchema } from '@/schemas/skillSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import * as z from 'zod'
+import { ApiResponse } from '@/types/ApiResponse'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+
 
 const DashBoard = () => {
-  const [loading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState<Admin | null>(null);
   const router = useRouter();
 
+  const form = useForm<z.infer<typeof skillSchema>>({
+    resolver: zodResolver(skillSchema)
+  });
+
+
+  const skill = form.watch('skill')
+
+  const [loading, setLoading] = useState(false)
+
+  const onSubmit = async (data: z.infer<typeof skillSchema>) => {
+    setLoading(true)
+    try {
+      const response = await axios.post<ApiResponse>('api/skills', { ...data });
+
+      toast({
+        title: response.data.message,
+        variant: 'default',
+      });
+      form.reset({ ...form.getValues(), skill: '' })
+
+      router.push('../dashboard');
+
+    } catch (error) {
+      const axiosError = error as AxiosError<ApiResponse>;
+      toast({
+        title: 'Error',
+        description:
+          axiosError.response?.data.message ?? 'Failed to sent message',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  }
 
 
   useEffect(() => {
@@ -50,7 +93,7 @@ const DashBoard = () => {
   }, [])
 
   console.log(user?.name)
-  if (loading) {
+  if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
         <LoaderIcon className='w-10 h-10 text-white animate-spin' />
@@ -72,7 +115,7 @@ const DashBoard = () => {
 
             <div className="flex flex-col items-center p-10">
               {user && user.imgurl ? (
-                <Image src={`${user?.imgurl}`} alt={`${user?.name}`} width={24} height={24} className=" mb-3 rounded-full" />
+                <Image src={`${user?.imgurl}`} alt={`${user?.name}`} width={150} height={150} className=" mb-3 rounded-full" />
               ) : (
                 <div className='rounded-full shadow-lg border border-gray-700 p-2 mb-3'>
                   <ImagePlus className='w-14 h-14' />
@@ -153,9 +196,10 @@ const DashBoard = () => {
             <CardContent className='p-6'>
               <ul className='grid grid-cols-2'>
                 {
-                  user?.skills.map((skill, index) => (
 
-                    <li className='text-gray-400 p-3' key={index}>
+                  user?.skills.sort().map((skill, index) => (
+
+                    <li className='text-gray-400 py-3 px-4' key={index}>
                       {skill}
                       <Separator className='bg-gray-700' />
                     </li>
@@ -165,6 +209,36 @@ const DashBoard = () => {
               </ul>
             </CardContent>
             <Separator className='bg-gray-700' />
+            <CardFooter className='p-3'>
+              <AlertDialog>
+                <AlertDialogTrigger className='bg-blue-700 p-2 rounded-md text-white'>Add skill</AlertDialogTrigger>
+                <AlertDialogContent className='bg-gray-900 text-white'>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Add Skill</AlertDialogTitle>
+                  </AlertDialogHeader>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                      <FormField
+                        control={form.control}
+                        name="skill"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input className='text-input' placeholder="Skill Name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <AlertDialogFooter>
+                        <Button type="submit" className='bg-blue-700 hover:bg-blue-600'>Add</Button>
+                        <AlertDialogCancel className='bg-black'>Cancel</AlertDialogCancel>
+                      </AlertDialogFooter>
+                    </form>
+                  </Form>
+                </AlertDialogContent>
+              </AlertDialog>
+            </CardFooter>
           </Card>
         </div>
       </section >
