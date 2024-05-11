@@ -197,6 +197,15 @@ const AdminSchema: Schema<Admin> = new Schema(
             type: String,
             default: "",
         },
+        country:{
+            type: String,
+            default:""
+        }
+        ,
+        city:{
+            type: String,
+            default: "",
+        },
         skills:{
             type: [String],
             default: []
