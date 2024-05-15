@@ -52,7 +52,7 @@ const ProjectSchema: Schema<Project> = new Schema(
     }
 )
 export interface Certificate extends Document {
-    name: string;
+    title: string;
     issuingOrganization: string;
     credentialId: string;
     img: string;
@@ -64,7 +64,7 @@ export interface Certificate extends Document {
 
 const CertificateSchema: Schema<Certificate> = new Schema(
     {
-        name: {
+        title: {
             type: String,
             required: [true, "Name is required"],
         },

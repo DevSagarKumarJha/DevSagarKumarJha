@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/options";
 import AdminModel, { Admin, Certificate } from "@/model/Admin";
 import dbConnect from "@/lib/dbConnect";
+import mongoose from "mongoose";
 
 export async function POST(request: Request) {
     const session = await getServerSession(authOptions)
@@ -21,7 +22,7 @@ export async function POST(request: Request) {
     await dbConnect();
 
     const userId = user._id;
-    const { name, issuingOrganization, credentialId, img, credentialUrl, issueDate, expiryDate, createdAt } = await request.json();
+    const { title, issuingOrganization, credentialId, img, credentialUrl, issueDate, expiryDate, createdAt } = await request.json();
 
     try {
         const user = await AdminModel.findById(userId);
@@ -39,7 +40,7 @@ export async function POST(request: Request) {
         }
 
         const newCertificate = {
-            name,
+            title,
             issuingOrganization,
             credentialId,
             img,

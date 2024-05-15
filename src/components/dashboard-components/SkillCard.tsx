@@ -96,7 +96,7 @@ const SkillCard:React.FC<SkillCardProps> = ({user=null}) => {
                       render={({ field }) => (
                         <FormItem>
                           <FormControl>
-                            <Input className='text-input' placeholder="Skill Name" {...field} />
+                            <Input className='text-black' placeholder="Skill Name" {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>

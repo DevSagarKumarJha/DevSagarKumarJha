@@ -26,11 +26,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   }, []);
 
   const onUpload = (result: any) => {
-    const publicId = result.info.public_id;
-    const url = getCldImageUrl({
-      src: publicId
-    })
-    onChange(url);
+    console.log(result)
+    onChange(result.info.secure_url);
   };
 
   if (!isMounted) {
@@ -39,7 +36,8 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
   return (
     <div>
       <div className="mb-4 flex items-center gap-4">
-        {value.map((url) => (
+        {
+        value.map((url) => (
           <div
             key={url}
             className="relative w-[200px] h-[200px] rounded-md overflow-hidden"
@@ -54,12 +52,12 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
                 <Trash className="w-4 h-4" />
               </Button>
             </div>
-            <Image fill className="object-cover" alt="Image" src={url} />
+            <Image src={url}  fill className="object-cover" alt="Image" />
           </div>
         ))}
       </div>
       <CldUploadWidget
-        onSuccess={onUpload}
+        onUpload={onUpload}
         uploadPreset="ml_default"
       >
 
@@ -75,7 +73,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
               onClick={onClick}
             >
               <ImagePlus className="h-4 w-4" />
-              Upload an Image
+                Upload an Image
             </Button>
           )
         }}

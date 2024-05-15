@@ -1,61 +1,60 @@
 'use client'
 
 import { LoaderIcon, MenuSquareIcon, SendIcon } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Admin } from '@/model/Admin'
 import { toast } from '@/components/ui/use-toast'
 import ImageComponent from '@/components/dashboard-components/ImageComponent'
 import AboutCardComponent from '@/components/dashboard-components/AboutCardComponent'
 import ContactCard from '@/components/dashboard-components/ContactCard'
 import axios, { AxiosError } from 'axios'
+import SkillCertificateCountCard from '@/components/dashboard-components/SkillCertificateCountCard'
 import SkillCard from '@/components/dashboard-components/SkillCard'
+import ProjectCountCard from '@/components/dashboard-components/ProjectCountCard'
+import { ApiResponse } from '@/types/ApiResponse'
+
 
 
 const DashBoard = () => {
-  const [isLoading, setIsLoading] = useState(false);
   const [user, setUser] = useState<Admin | null>(null);
-  
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchdata = async () => {
+  const fetchUser = useCallback(
+    async () => {
+      setIsLoading(true);
+
       try {
-        setIsLoading(true)
-        const response = await axios.get('api/info');
+        const response = await axios.get<ApiResponse | any>('/api/info');
         const data = response.data;
 
         if (response.status === 200 && data.success) {
           setUser(data.user)
-        } else {
-          toast({
-            title: 'Error getting data',
-            description: data.message,
-            variant: "destructive"
-          })
         }
       } catch (error) {
-        const axiosErr = error as AxiosError;
+        const axiosError = error as AxiosError<ApiResponse>;
         toast({
-          title: 'Internal Server Error',
-          description: axiosErr.message,
-          variant: "destructive"
-        })
-      } finally {
-        setIsLoading(false)
+          title: 'Error',
+          description:
+            axiosError.response?.data.message ?? 'Failed to fetch messages',
+          variant: 'destructive',
+        });
       }
-    }
-    fetchdata()
-  }, [])
+      finally{
+        setIsLoading(false);
+      }
+    }, [setIsLoading, setUser, toast]
+  )
 
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <LoaderIcon className='w-10 h-10 text-white animate-spin' />
-        <h1 className='text-xl text-white'>Loading</h1>
-      </div>
-    )
-  } else {
+  useEffect(()=>{
+    fetchUser()
+  }, [toast, fetchUser])
 
-    return (
+  return  isLoading ? (
+    <div className="flex justify-center items-center h-screen" >
+      <LoaderIcon className='w-10 h-10 text-white animate-spin' />
+      <h1 className='text-xl text-white'>Loading</h1>
+    </div >
+  ) :(
       <section className='text-white p-1'>
         <div className='flex justify-start items-center space-x-2 bg-blue-800 px-3 py-2'>
           <MenuSquareIcon className='w-8 h-8' />
@@ -65,19 +64,20 @@ const DashBoard = () => {
 
         <div className='grid sm:grid-cols-3 gap-2 container bg-gray-950 p-1 md:p-4 rounded-xl mt-2'>
           <ImageComponent user={user} />
-
           <AboutCardComponent bio={`${user?.bio}`} />
+          <SkillCertificateCountCard count={user?.certificates.length || 0} />
+          <ProjectCountCard count={user?.projects.length || 0} />
         </div>
 
         <div className=' container  bg-gray-950 p-1 md:p-4 rounded-xl mt-2 space-y-4'>
-        <ContactCard email={`${user?.email}`} phone={`${user?.phone}`} city={`${user?.city}`} country={`${user?.country}`} />
+          <ContactCard email={`${user?.email}`} phone={`${user?.phone}`} city={`${user?.city}`} country={`${user?.country}`} />
 
-        <SkillCard user={user? user : null} />
-
+          <SkillCard user={user ? user : null} />
         </div>
       </section >
     )
-  }
+
 }
+
 
 export default DashBoard

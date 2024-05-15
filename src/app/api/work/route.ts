@@ -51,17 +51,17 @@ export async function POST(request: Request) {
         return Response.json(
             {
                 success: true,
-                message: "New certificate added successfully"
+                message: "New project added successfully"
             }, {
             status: 201
         }
         )
     } catch (error) {
-        console.log("Skill adding failed", error)
+        console.log("project adding failed", error)
         return Response.json(
             {
                 success: false,
-                message: "Adding certificate failed"
+                message: "Adding project failed"
             },
             {
                 status: 500
