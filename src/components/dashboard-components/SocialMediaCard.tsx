@@ -16,7 +16,6 @@ interface SocialMediaProps {
 const SocialMediaCard: React.FC<SocialMediaProps> = (
     { user = null }
 ) => {
-    const router = useRouter();
     return (
 
         <Card className='max-md:mt-2 w-full hover:bg-gray-800 bg-gray-900 py-2 border-gray-700 col-span-1 text-white'>
@@ -31,7 +30,7 @@ const SocialMediaCard: React.FC<SocialMediaProps> = (
             <CardContent className='grid p-6 grid-cols-2 gap-x-4 gap-2'>
                 {
                     user?.socials.map((link)=>(
-                        <Link className='border rounded-md p-1 text-center hover:bg-black' target='blank' href={link.url}>{link.name}</Link>
+                        <Link key={link.name} className='border rounded-md p-1 text-center hover:bg-black' target='blank' href={link.url}>{link.name}</Link>
                     ))
                 }
             </CardContent>
