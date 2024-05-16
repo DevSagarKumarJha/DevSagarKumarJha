@@ -12,6 +12,7 @@ import SkillCertificateCountCard from '@/components/dashboard-components/SkillCe
 import SkillCard from '@/components/dashboard-components/SkillCard'
 import ProjectCountCard from '@/components/dashboard-components/ProjectCountCard'
 import { ApiResponse } from '@/types/ApiResponse'
+import SocialMediaCard from '@/components/dashboard-components/SocialMediaCard'
 
 
 
@@ -67,6 +68,7 @@ const DashBoard = () => {
           <AboutCardComponent bio={`${user?.bio}`} />
           <SkillCertificateCountCard count={user?.certificates.length || 0} />
           <ProjectCountCard count={user?.projects.length || 0} />
+          <SocialMediaCard user={user}/>
         </div>
 
         <div className=' container  bg-gray-950 p-1 md:p-4 rounded-xl mt-2 space-y-4'>

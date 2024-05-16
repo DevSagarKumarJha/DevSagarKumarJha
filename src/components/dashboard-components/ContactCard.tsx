@@ -24,7 +24,7 @@ const ContactCard: React.FC<ContactCardProps> = ({
             </CardHeader>
             <Separator className='bg-gray-700' />
             <CardContent
-                className='text-gray-300 p-2 md:p-6'>
+                className='text-gray-300 p-2 md:p-6 hover:bg-black'>
                 <b className='flex justify-start text-white items-center'>
                     <MailIcon className='mr-2' /> Email
                 </b>
@@ -35,17 +35,17 @@ const ContactCard: React.FC<ContactCardProps> = ({
             </CardContent>
             <Separator className='bg-gray-700' />
 
-            <CardContent className='text-gray-300 p-2 md:p-6'>
+            <CardContent className='text-gray-300 p-2 md:p-6 hover:bg-black'>
                 <b className='flex justify-start text-white items-center'>
                     <PhoneIcon className='mr-2' /> Phone
                 </b>
-                <Link href={`tel:${phone}`}>
+                <Link  href={`tel:${phone}`}>
                     {phone}
                 </Link>
             </CardContent>
             <Separator className='bg-gray-700' />
 
-            <CardContent className='text-gray-300 p-2 md:p-6' >
+            <CardContent className='text-gray-300 p-2 md:p-6 hover:bg-black' >
                 <b className='flex justify-start text-white items-center'>
                     <LocateIcon className='mr-2' /> Location
                 </b>
