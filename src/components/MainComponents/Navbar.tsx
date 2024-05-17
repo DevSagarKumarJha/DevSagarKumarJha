@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
     
     return (
-        <nav className='bg-gray-800 text-white p-4 sm:p-6 md:flex md:justify-between md:items-center w-full'>
+        <nav className='bg-gradient-to-br from-blue-400 to-blue-700 text-white p-4 sm:p-6 md:flex md:justify-between md:items-center w-full'>
             <div className="container mx-auto flex justify-between items-center">
                 <Link href="" className='text-2xl font-bold'>Sagar</Link>
                 
