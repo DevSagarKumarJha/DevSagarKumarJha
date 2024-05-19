@@ -20,7 +20,7 @@ export default function Home() {
       setIsLoading(true);
 
       try {
-        const response = await axios.get<ApiResponse | any>('/api/info');
+        const response = await axios.get<ApiResponse | any>('/api/info/devsagarkumarjha');
         const data = response.data;
 
         if (response.status === 200 && data.success) {
@@ -58,7 +58,7 @@ export default function Home() {
                 <Image priority={true} src={`${user?.imgurl}`} alt={`${user?.name}`} width={160} height={160} className=" mb-3 rounded-full shadow-lg border-8 border-white " />
               ) : (
                 <div className='rounded-full shadow-lg border-8 border-white bg-white p-2 mb-3'>
-                  <UserRoundIcon className='w-36 h-36' />
+                  <UserRoundIcon className='w-28 h-28' />
                 </div>
               )
 
@@ -66,7 +66,7 @@ export default function Home() {
               <h5 className="mb-1 text-xl font-medium text-white md:font-semibold">{user?.name}</h5>
               <span className="text-sm text-gray-200">Full Stack Developer</span>
             </div>
-              <Link href={""} className="border rounded-md px-6 py-3 text-center bg-gradient-to-br hover:from-blue-400 hover:to-blue-700 duration-200 ease-linear text-white">Hire Me</Link>
+              <Link href={""} className="border rounded-md px-6 py-3 text-center bg-gradient-to-br hover:from-blue-400 hover:to-blue-700 duration-200 font-semibold ease-linear text-white">View Resume</Link>
           </div>
 
           <Card className="flex flex-col justify-center items-center lg:w-1/2 rounded-none max-md:rounded md:rounded-e-sm md:p-6 space-y-3 border-none  bg-transparent">
