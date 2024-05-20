@@ -16,13 +16,13 @@ const Navbar = () => {
                     <Link href="/" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>
                         Home
                     </Link>
-                    <Link href="/work" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>
+                    <Link href="#work" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>
                         Work
                     </Link>
                     <Link href="/certificate" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>
                         Certificate
                     </Link>
-                    <Link href="/about" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>
+                    <Link href="#about" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>
                         About
                     </Link>
                     <Link href="/contact" className='hover:text-gray-400 hover:border-b-8 active:border-b-8  duration-300'>

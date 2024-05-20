@@ -27,7 +27,7 @@ const ProjectCountCard: React.FC<ProjectCountProps> = (
                 {count}
             </CardContent>
             <CardFooter>
-                <Button onClick={()=>router.push('/dashboard/work')} className='bg-blue-700'>View Projects</Button>
+                <Button onClick={()=>router.push('/dashboard/works')} className='bg-blue-700'>View Projects</Button>
             </CardFooter>
 
         </Card>

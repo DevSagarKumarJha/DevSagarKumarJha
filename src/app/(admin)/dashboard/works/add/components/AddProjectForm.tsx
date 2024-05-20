@@ -35,81 +35,98 @@ const AddProjectForm = () => {
             title: '',
             description: '',
             url: '',
-            img: [],
+            images: [],
             createdAt: new Date(),
         }
     })
 
-    const ImageRef = form.register('img')
+
     const onSubmit = async (data: z.infer<typeof projectSchema>) => {
-        console.log(data)
+        setLoading(true)
+        try {
+            const response = await axios.post<ApiResponse>("/api/work", { ...data })
+
+            toast({
+                title: response.data.message,
+            })
+            router.push('../')
+        } catch (error) {
+            const axiosError = error as AxiosError<ApiResponse>;
+            toast({
+                title: 'Error',
+                description:
+                    axiosError.response?.data.message ?? 'Failed to sent message',
+                variant: 'destructive',});
+            }finally {
+                setLoading(false)
+            }
+        }
+        return (
+            <Form {...form}>
+                <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2 max-w-md border p-4 my-6 rounded-xl'>
+                    <FormField
+                        control={form.control}
+                        name='title'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Name*</FormLabel>
+                                <FormControl>
+                                    <Input placeholder='Ex: Portfolio Management App' className='text-black' {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name='description'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Description*</FormLabel>
+                                <FormControl>
+                                    <Textarea placeholder='Ex: HackerRank' className='text-black' {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name='url'
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>URL*</FormLabel>
+                                <FormControl>
+                                    <Input placeholder='Ex: https://example.com' className='text-black' {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="images"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Image</FormLabel>
+                                <ImageUpload
+                                    value={field.value.map((image) => image.url)}
+                                    disabled={loading}
+                                    onChange={(url) => field.onChange([...field.value, { url }])}
+                                    onRemove={(url) =>
+                                        field.onChange([
+                                            ...field.value.filter((current) => current.url !== url),
+                                        ])}
+
+                                />
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <Button type='submit' variant={'default'} className='w-full text-xl bg-white text-black hover:bg-black hover:text-white hover:border' >Add</Button>
+                </form>
+            </Form>
+        )
     }
-    return (
-        <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-2 max-w-md border p-4 my-6 rounded-xl'>
-                <FormField
-                    control={form.control}
-                    name='title'
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Name*</FormLabel>
-                            <FormControl>
-                                <Input placeholder='Ex: Portfolio Management App' className='text-black' {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name='description'
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Description*</FormLabel>
-                            <FormControl>
-                                <Textarea placeholder='Ex: HackerRank' className='text-black' {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name='url'
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>URL*</FormLabel>
-                            <FormControl>
-                                <Input placeholder='Ex: https://example.com' className='text-black' {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <FormField
-                    control={form.control}
-                    name="img"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Image</FormLabel>
-                            <ImageUpload
-                                value={field.value.map((image) => image.url)}
-                                disabled={loading}
-                                onChange={(url) => field.onChange([...field.value, { url }])}
-                                onRemove={(url) =>
-                                  field.onChange([
-                                    ...field.value.filter((current) => current.url !== url),
-                                  ])}
 
-                            />
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type='submit' variant={'default'} className='w-full text-xl bg-white text-black hover:bg-black hover:text-white hover:border' >Add</Button>
-            </form>
-        </Form>
-    )
-}
-
-export default AddProjectForm
+    export default AddProjectForm

@@ -8,7 +8,7 @@ import AddProjectForm from './components/AddProjectForm'
 const page = () => {
   return (
     <section className='text-white'>
-      <Card className='max-md:mt-2 w-full bg-gray-900 border-gray-700 text-white'>
+      <Card className='max-md:mt-2 w-full bg-gray-900 min-h-screen border-gray-700 text-white'>
         <CardHeader >
           <div className='flex justify-between items-center'>
             <CardTitle>Add Project</CardTitle>

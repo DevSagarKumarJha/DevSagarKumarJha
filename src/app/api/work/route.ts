@@ -1,7 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/options";
-import AdminModel, { Admin, Certificate, Project } from "@/model/Admin";
+import AdminModel, { Admin, Project } from "@/model/Admin";
 import dbConnect from "@/lib/dbConnect";
+import { projectSchema } from "@/schemas/projectSchema";
 
 export async function POST(request: Request) {
     const session = await getServerSession(authOptions)
@@ -41,10 +42,11 @@ export async function POST(request: Request) {
         const newProject = {
             title,
             description,
-            images,
+            images: images.map((image: { url: string; })=> image.url),
             url,
             createdAt
         }
+        
         user.projects.push(newProject as Project);
         await user.save()
 
