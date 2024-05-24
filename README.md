@@ -21,9 +21,11 @@ Here are some ideas to get you started:
 
 <p align="left">Hey, welcome to my github page.
 
-My Name is Sagar Kumar Jha and I am a computer programmer. I write code to affect the environment of businesses with me. Its my passion to create softwares to entertain myself. It is great flex for me to others to show my skills to publicly.
+My name is Sagar Kumar Jha, and I am a computer programmer with a passion for creating software that impacts the business environment. I enjoy developing software as a way to challenge and entertain myself, and I take pride in showcasing my skills to the public.
 
-I know few technologies HTML, CSS, Javascript, C/C++, Java, Python, Node js, But my favourite is Javascript as it is great technology to go for web/mobile application development. Currently I am working with Nextjs library as it is great full stack framework with great functionalities.</p>
+I have experience with several technologies, including HTML, CSS, JavaScript, C/C++, Java, Python, and Node.js. My favorite language is JavaScript, as it is an excellent technology for web and mobile application development. Currently, I am working with the Next.js library, which is a powerful full-stack framework with extensive functionalities.
+
+I am seeking a role as a Frontend, Backend, or Fullstack Developer, where I can utilize my skills and contribute to innovative projects..</p>
 
 ###
 
