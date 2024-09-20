@@ -14,12 +14,21 @@ I am seeking a role as a Frontend, Backend, or Fullstack Developer, where I can 
 <hr/>
 
 ### <h2 align="center">📊 GitHub Stats</h2>
+<div align="center">
 
 ![](https://github-readme-activity-graph.vercel.app/graph?username=devsagarkumarjha&bg_color=21232a&color=a8eeff&line=61dafb&point=f0fcff&area=true&hide_border=false)
-![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=devsagarkumarjha&theme=github_dark)
-![](https://github-readme-stats.vercel.app/api?username=devsagarkumarjha&theme=dark&hide_border=false&include_all_commits=true&count_private=true) &nbsp;
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Atanu0341&theme=github-dark)](https://git.io/streak-stats) ![](https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=devsagarkumarjha&layout=compact&langs_count=10&&theme=react)
 
+![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=devsagarkumarjha&theme=github_dark)
+
+![](https://github-readme-stats.vercel.app/api?username=devsagarkumarjha&theme=dark&hide_border=false&include_all_commits=true&count_private=true)
+
+
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Atanu0341&theme=github-dark)](https://git.io/streak-stats) 
+
+![](https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=devsagarkumarjha&layout=compact&langs_count=10&&theme=react)
+
+
+</div>
 <hr/>
 
 ### <h2 align="center">My skills</h2>
