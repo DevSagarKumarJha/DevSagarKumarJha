@@ -20,16 +20,24 @@ I am seeking a role as a Frontend, Backend, or Fullstack Developer, where I can 
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=devsagarkumarjha&theme=github_dark)
 
-![](https://github-readme-stats.vercel.app/api?username=devsagarkumarjha&theme=dark&hide_border=false&include_all_commits=true&count_private=true)
+![](https://github-readme-stats.vercel.app/api?username=devsagarkumarjha&theme=dark&hide_border=false&include_all_commits=true&count_private=true&layout=compact) &nbsp; ![](https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=devsagarkumarjha&layout=compact&langs_count=10&&theme=react)
 
 
 [![GitHub Streak](https://github-readme-streak-stats.herokuapp.com?user=Atanu0341&theme=github-dark)](https://git.io/streak-stats) 
 
-![](https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=devsagarkumarjha&layout=compact&langs_count=10&&theme=react)
 
 
 </div>
 <hr/>
+
+### <h2 align="center"> 🐦 Coding Stats </h2>
+<div align="center">
+
+![Leetcode Stats](https://leetcard.jacoblin.cool/devsagarkumarjha)
+</div>
+
+<hr/>
+
 
 ### <h2 align="center">My skills</h2>
 <div align="center">
@@ -61,14 +69,14 @@ I am seeking a role as a Frontend, Backend, or Fullstack Developer, where I can 
 <hr/>
 
 
-### <h2 align="center"> 🐦 Coding Stats </h2>
-![Leetcode Stats](https://leetcard.jacoblin.cool/devsagarkumarjha)
 
-<hr/>
 
 ### <h2 align="center"> 🏆 GitHub Trophies </h2>
+<div align="center">
+
 ![](https://github-profile-trophy.vercel.app/?username=devsagarkumarjha&theme=radical&no-frame=false&no-bg=true&margin-w=4)
 
+</div>
 <hr/>
 
 ### <h2 align="center">Connect with me</h2>
