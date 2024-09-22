@@ -20,7 +20,7 @@ I am seeking a role as a Frontend, Backend, or Fullstack Developer, where I can 
 ### <h2 align="center">📊 GitHub Stats</h2>
 <div align="center">
 
-![](https://github-readme-activity-graph.vercel.app/graph?username=Atanu0341&bg_color=21232a&color=a8eeff&line=61dafb&point=f0fcff&area=true&hide_border=false)
+![](https://github-readme-activity-graph.vercel.app/graph?username=devsagarkumarjha&bg_color=21232a&color=a8eeff&line=61dafb&point=f0fcff&area=true&hide_border=false)
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=devsagarkumarjha&theme=github_dark)
 
