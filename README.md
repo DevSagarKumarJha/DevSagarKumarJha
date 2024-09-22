@@ -1,4 +1,8 @@
-<h1 align="left">Hey 👋 What's up?</h1>
+<div align="center">
+<img src="https://media.licdn.com/dms/image/v2/D4D16AQEk5Ex_XiezWg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1713415416105?e=1732752000&v=beta&t=rmuCTW1DtpfeyTr-hgAetvi4R7PO23YqF9ZoD1oAc9A" />
+</div>
+
+# Hello, 👋 What's up? 
 
 ###
 
@@ -16,7 +20,7 @@ I am seeking a role as a Frontend, Backend, or Fullstack Developer, where I can 
 ### <h2 align="center">📊 GitHub Stats</h2>
 <div align="center">
 
-![](https://github-readme-activity-graph.vercel.app/graph?username=DevSagarKumarJha&bg_color=21232a&color=a8eeff&line=61dafb&point=f0fcff&area=true&hide_border=false)
+![](https://github-readme-activity-graph.vercel.app/graph?username=Atanu0341&bg_color=21232a&color=a8eeff&line=61dafb&point=f0fcff&area=true&hide_border=false)
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=devsagarkumarjha&theme=github_dark)
 
